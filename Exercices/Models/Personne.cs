@@ -19,6 +19,10 @@ namespace ExercicesBase
             DateNaissance = dateTime;
         }
 
+        public Personne(string nom, string prenom) : this(nom, prenom, DateTime.Now) {
+
+        }
+        
         public void InversePrenom() {
             char[] tmp = Prenom.ToCharArray();
             Array.Reverse(tmp);

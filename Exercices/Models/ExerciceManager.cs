@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ExercicesBase.Extensions;
 using ExercicesBase.Interfaces;
@@ -56,6 +57,19 @@ namespace ExercicesBase
             _exercices.Add(ExerciceTableau5);
             _exercices.Add(ExerciceTableau6);
             _exercices.Add(ExerciceTableau7);
+            _exercices.Add(ExerciceLinq1); // 39
+            _exercices.Add(ExerciceLinq2);
+            _exercices.Add(ExerciceLinq3);
+            _exercices.Add(ExerciceLinq4);
+            _exercices.Add(ExerciceLinq5); //43
+            _exercices.Add(ExerciceLinq6);
+            _exercices.Add(ExerciceLinq7);
+            _exercices.Add(ExerciceLinq8);
+            _exercices.Add(ExerciceLinq9);
+            _exercices.Add(ExerciceLinq10);
+            _exercices.Add(ExerciceLinq11);
+            _exercices.Add(ExerciceLinq12);
+            _exercices.Add(ExerciceLinq13);
         }
 
         public void Clear() {
@@ -683,6 +697,141 @@ namespace ExercicesBase
 
             while (queue.Count != 0) {
                 Console.WriteLine(queue.Dequeue());
+            }
+        }
+
+        private static readonly List<int> ints = new List<int> {1, 4, 10, 49, 18, 55, 999, 100, 2, -1, -70};
+
+        /// <summary>
+        /// Afficher la somme
+        /// </summary>
+        private static void ExerciceLinq1() {
+            Console.WriteLine($"Somme des entiers : {ints.Sum()}");
+        }
+
+        /// <summary>
+        /// Afficher la moyenne
+        /// </summary>
+        private static void ExerciceLinq2() {
+            Console.WriteLine($"Moyenne des entiers : {ints.Average()}");
+        }
+
+        /// <summary>
+        /// Sélectionner que les nombres qui sont > 6
+        /// </summary>
+        private static void ExerciceLinq3() {
+            List<int> superierA6 = ints.Where(i => i > 6).ToList();
+
+            Console.Write("Affichage des éléments supérieurs à 6 : ");
+            foreach (var i in superierA6) {
+                Console.Write($"{i} ");
+            }
+
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Compter le nombre d’élément
+        /// </summary>
+        private static void ExerciceLinq4() {
+            Console.WriteLine($"Nombre d'élements : {ints.Count}");
+        }
+
+        private static readonly List<Personne> listPersonnes = new List<Personne> {
+            new Personne("David", "Jean"),
+            new Personne("David", "Raoul"),
+            new Personne("Opazer", "Didier"),
+            new Personne("Aports", "Louis"),
+            new Personne("Loapze", "Kévin"),
+            new Personne("Porteraa", "Xavier"),
+            new Personne("Porteraa", "Azazel"),
+            new Personne("Atenea", "Fabien"),
+            new Personne("Jusiat", "Fabien"),
+            new Personne("Doaezr", "Paul"),
+            new Personne("Dupont", "Paul"),
+        };
+
+        /// <summary>
+        /// Les trier avec la méthode OrderBy par le nom puis le prénom
+        /// </summary>
+        private static void ExerciceLinq5() {
+            foreach (var personne in listPersonnes.OrderBy(p => p.Nom).ThenBy(p => p.Prenom).ToList()) {
+                Console.WriteLine(personne);
+            }
+        }
+
+        /// <summary>
+        /// Afficher que les personnes qui ont leurs noms qui commence par D
+        /// </summary>
+        private static void ExerciceLinq6() {
+            foreach (var personne in listPersonnes.Where(p => p.Nom.StartsWith("D"))) {
+                Console.WriteLine(personne);
+            }
+        }
+
+        /// <summary>
+        /// Afficher que les noms des personnes
+        /// </summary>
+        private static void ExerciceLinq7() {
+            foreach (string nom in listPersonnes.Select(p => p.Nom)) {
+                Console.WriteLine(nom);
+            }
+        }
+
+        /// <summary>
+        /// Afficher le nom en majuscule et le prénom des personnes trié par ordre descendant sur le
+        /// prénom dont leurs noms commence par D
+        /// </summary>
+        private static void ExerciceLinq8() {
+            foreach (var personne in listPersonnes.Where(p => p.Nom.StartsWith("D")).OrderByDescending(p => p.Prenom).Select(p => new {Nom = p.Nom.ToUpper(), p.Prenom})) {
+                Console.WriteLine($"{personne.Nom}, {personne.Prenom}");
+            }
+        }
+
+        /// <summary>
+        /// Sélectionner que les 2 première personne
+        /// </summary>
+        private static void ExerciceLinq9() {
+            foreach (var personne in listPersonnes.Take(2)) {
+                Console.WriteLine(personne);
+            }
+        }
+
+        /// <summary>
+        /// Sélection les personnes rentrés en 7ème 8ème et 9ème position
+        /// </summary>
+        private static void ExerciceLinq10() {
+            foreach (var personne in listPersonnes.Skip(6).Take(3)) {
+                Console.WriteLine(personne);
+            }
+        }
+
+        /// <summary>
+        /// Récupérer la personne qui a le nom Dupont
+        /// </summary>
+        private static void ExerciceLinq11() {
+            Console.WriteLine(listPersonnes.FirstOrDefault(p => p.Nom.Equals("Dupont")));
+        }
+
+        /// <summary>
+        /// Savoir si notre liste contient une personne dont le nom commence par D
+        /// </summary>
+        private static void ExerciceLinq12() {
+            bool exist = listPersonnes.Exists(p => p.Nom.StartsWith("D"));
+
+            Console.WriteLine(exist
+                                  ? "Il existe une personne dont le nom commence par D"
+                                  : "Il n'existe pas de personne dont le nom commence par D");
+        }
+
+        /// <summary>
+        /// Regrouper les personnes par leurs prénoms
+        /// </summary>
+        private static void ExerciceLinq13() {
+            foreach (var personne in listPersonnes.OrderBy(p => p.Prenom).GroupBy(p => p.Prenom)) {
+                foreach (var p in personne) {
+                    Console.WriteLine(p);
+                }
             }
         }
 
