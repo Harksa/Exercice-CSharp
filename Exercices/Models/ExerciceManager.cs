@@ -70,6 +70,8 @@ namespace ExercicesBase
             _exercices.Add(ExerciceLinq11);
             _exercices.Add(ExerciceLinq12);
             _exercices.Add(ExerciceLinq13);
+            _exercices.Add(ExerciceException1); // 52
+            _exercices.Add(ExerciceException2); // 52
         }
 
         public void Clear() {
@@ -835,6 +837,46 @@ namespace ExercicesBase
             }
         }
 
+        /// <summary>
+        /// Gérer la division par 0 par un try catch
+        /// </summary>
+        private static void ExerciceException1() {
+            int zero = 0;
+            try {
+                int result = 10 / zero;
+                Console.WriteLine(result);
+            } catch (Exception e) {
+                Console.WriteLine(e);
+            }
+        }
+
+        /// <summary>
+        /// Créer une classe Élèves caractérisée par nom, âge et moyenne.
+        /// a. L’âge doit être entre 18 et 26 sinon l’exception InvalidAgeException (elle affiche le
+        /// message "L’âge doit être entre 18 et 26") est générée.
+        /// b. La note doit être entre 0 et 20 sinon l’exception InvalidNoteException est générée
+        /// (elle affiche le message "La note doit être entre 0 et 20").
+        /// </summary>
+        private static void ExerciceException2() {
+            try {
+                Eleve eleve = new Eleve("Bonjour", 2, 21);
+            } catch (Exception e) {
+                Console.WriteLine("Une exception est survenue : " + e);
+            }
+            
+            try {
+                Eleve eleve = new Eleve("Robert", 12, 20);
+            } catch (InvalidAgeException e) {
+                Console.WriteLine("Age invalide : " + e);
+            }
+
+            try {
+                Eleve eleve = new Eleve("Jean", 20, 100);
+            } catch (InvalidNoteException e) {
+                Console.WriteLine("Erreur note : " + e);
+            }
+
+        }
         #endregion
     }
 }
