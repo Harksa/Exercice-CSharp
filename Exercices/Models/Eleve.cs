@@ -28,7 +28,7 @@ namespace ExercicesBase.Models {
             get { return moyenne; }
             set
             {
-                if (value > 0 && value <= 20)
+                if (value >= 0 && value <= 20)
                     moyenne = value;
                 else {
                     throw new InvalidNoteException();
