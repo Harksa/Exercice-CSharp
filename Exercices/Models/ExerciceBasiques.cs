@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ExercicesBase.Extensions;
 using ExercicesBase.Interfaces;
-using ExercicesBase.Models;
 
-namespace ExercicesBase
+namespace ExercicesBase.Models
 {
-    class ExerciceManager
+    class ExercicesBasiques
     {
         private readonly List<Action> _exercices = new List<Action>();
 
-        public ExerciceManager() {
+        public ExercicesBasiques() {
             Init();
+        }
+
+        ~ExercicesBasiques() {
+            Clear();
         }
 
         private void Init() 

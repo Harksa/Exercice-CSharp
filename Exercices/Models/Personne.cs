@@ -5,13 +5,15 @@ using ExercicesBase.Interfaces;
 
 namespace ExercicesBase
 {
-    class Personne : ITravailleur, IEquatable<Personne>, IComparable<Personne> {
+    public class Personne : ITravailleur, IEquatable<Personne>, IComparable<Personne> {
 
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public DateTime DateNaissance { get; set; }
 
         public static int Test = 1;
+
+        public Personne() {}
 
         public Personne(string nom, string prenom, DateTime dateTime) {
             Nom = nom;
