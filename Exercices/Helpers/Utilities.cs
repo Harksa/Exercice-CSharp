@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExercicesBase
 {
-    static class Utilities
+    public static class Utilities
     {
         public static string GetUserStringInput(string text = "Rentrez un texte : ") {
             Console.Write(text);
