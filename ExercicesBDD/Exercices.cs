@@ -24,7 +24,6 @@ namespace ExercicesBDD
             _exercices.Add(Exercice3);
             _exercices.Add(Exercice4);
             _exercices.Add(Exercice5);
-            _exercices.Add(Exercice6);
         }
 
         private void Clear() {
