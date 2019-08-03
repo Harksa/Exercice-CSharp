@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ExercicesBDD.Models
 {
-    class Client
+    public class Client
     {
         public int ID { get; set; }
 

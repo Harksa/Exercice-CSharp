@@ -18,6 +18,21 @@ namespace ExercicesBDD
 
                 if (userInput > 0 && userInput < exercices.GetExerciceListSize()) {
                     exercices.DisplayExercice(userInput);
+                } else if (userInput == -1) {
+                    string crud = Utilities.GetUserStringInput("CRUD Client, sélection : ");
+                    switch(crud)
+                    {
+                        case "C":
+                            break;
+                        case "R":
+                            break;
+                        case "U":
+                            break;
+                        case "D":
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
 

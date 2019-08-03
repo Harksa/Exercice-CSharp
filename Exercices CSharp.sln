@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicesBDD", "ExercicesBDD\ExercicesBDD.csproj", "{87782D25-891D-4B6A-AD1D-E26326C75A26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiToDoList", "ApiToDoList\ApiToDoList.csproj", "{497DE597-3318-4AEA-92D1-4D4456009A44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{87782D25-891D-4B6A-AD1D-E26326C75A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87782D25-891D-4B6A-AD1D-E26326C75A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87782D25-891D-4B6A-AD1D-E26326C75A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{497DE597-3318-4AEA-92D1-4D4456009A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497DE597-3318-4AEA-92D1-4D4456009A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497DE597-3318-4AEA-92D1-4D4456009A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497DE597-3318-4AEA-92D1-4D4456009A44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

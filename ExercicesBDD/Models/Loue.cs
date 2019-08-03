@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExercicesBDD.Models
 {
-    class Loue
+    public class Loue
     {
         public int ID { get; set; }
 
