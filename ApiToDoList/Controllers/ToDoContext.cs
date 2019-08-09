@@ -14,6 +14,10 @@ namespace ApiToDoList
             optionsBuilder.UseSqlite("Data Source=Todo.db");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.Entity<Item>().HasKey(i => new {i.TodoId, i.ItemId});
+        }
+
         public DbSet<Todo> Todos { get; set; }
         public DbSet<Item> Items { get; set; }
     }

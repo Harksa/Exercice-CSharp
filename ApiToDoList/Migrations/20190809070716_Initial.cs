@@ -2,7 +2,7 @@
 
 namespace ApiToDoList.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace ApiToDoList.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ItemTitle = table.Column<string>(nullable: true)
+                    ItemTitle = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -23,26 +23,21 @@ namespace ApiToDoList.Migrations
                 name: "Items",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Objectif = table.Column<string>(nullable: true),
-                    TodoListID = table.Column<int>(nullable: true)
+                    TodoId = table.Column<int>(nullable: false),
+                    ItemId = table.Column<int>(nullable: false),
+                    Objectif = table.Column<string>(maxLength: 100, nullable: false),
+                    IsDone = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.ID);
+                    table.PrimaryKey("PK_Items", x => new { x.TodoId, x.ItemId });
                     table.ForeignKey(
-                        name: "FK_Items_Todos_TodoListID",
-                        column: x => x.TodoListID,
+                        name: "FK_Items_Todos_TodoId",
+                        column: x => x.TodoId,
                         principalTable: "Todos",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Items_TodoListID",
-                table: "Items",
-                column: "TodoListID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

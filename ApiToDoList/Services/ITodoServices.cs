@@ -7,12 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiToDoList.Services
 {
-    public interface ITodoServices
-    {
+    public interface ITodoServices {
+
+        IEnumerable<Todo> GetTodosHeader();
         Todo AddPost(Todo todo);
+        Todo GetTodo(int id);
+        Todo PutTodo(Todo todo);
+        bool DeleteTodo(int id);
+
         IEnumerable<Todo> GetAll();
-        Todo Get(int id);
+
         Item AddItem(int todoId, Item item);
-        IEnumerable<Item> GetItemsFromTodo(int todoId);
+        ICollection<Item> GetItemsFromTodo(int todoId);
+        Item PutItem(Item item);
+        bool DeleteItem(int id);
     }
 }
